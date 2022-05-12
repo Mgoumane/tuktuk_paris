@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+body{
+    font-family: 'Josefin Sans', sans-serif;
+}
+.span_vertical{
+    height: 574px;
+     border: solid white 1px;
+     display: inline-block;
+    vertical-align: middle;
+    position: absolute; top: 120px; left: 80px;
+}
+
+.boutonRouge{
+    background: #EF3434;
+    color: white;
+    padding: 10px;
+}
+
+@media (max-width: 992px) {
+    .bg_red{
+        background: #EF3434;
+    }
+    .textWhite{
+        color: white;
+    }
+
+    .logo_rouge{
+            color: #EF3434;
+    }
+
+    .big_box{
+        text-align: center;
+    }
+}
+
