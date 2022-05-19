@@ -55,7 +55,7 @@
             <p class="card-text lead fw-normal text-center">{{$option->description}} <br><br> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam cumque corporis, non eos sapiente, exercitationem</p>
             <div class="d-flex justify-content-around">
                 <a href="detailOption/{{ $option->id }}" class="btn btn-primary  btn-lg">En savoir +</a>
-                <a href="" class="btn btn-danger btn-lg ">Réserver</a>
+                <a href="{{URL::to('/formulaireReservation')}}" class="btn btn-danger btn-lg ">Réserver</a>
             </div>
         </div>
     </div>

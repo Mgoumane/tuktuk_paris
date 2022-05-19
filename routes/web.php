@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Accueil;
 use App\Http\Controllers\detailOption;
+use App\Http\Controllers\reservation;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,4 +20,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[Accueil::class,'accueil']);
 Route::get('/about',[Accueil::class,'about']);
 Route::get('/detailOption/{id}',[detailOption::class,'afficherOption']);
+Route::get('/formulaireReservation',[reservation::class,'formulaireReservation']);
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
