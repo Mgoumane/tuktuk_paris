@@ -1,5 +1,7 @@
 <?php
-use App\Http\Controllers\Acceuil;
+
+use App\Http\Controllers\Accueil;
+use App\Http\Controllers\detailOption;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/',[Acceuil::class,'acceuil']);
+Route::get('/',[Accueil::class,'accueil']);
+Route::get('/about',[Accueil::class,'about']);
+Route::get('/detailOption/{id}',[detailOption::class,'afficherOption']);
 
