@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Options;
 
 use Illuminate\Http\Request;
 
@@ -10,9 +11,16 @@ class reservation extends Controller
     {
         $this->middleware('auth');
     }
-    
-    public function formulaireReservation()
+
+    public function formulaireReservation($id)
     {
-        return view('formulaireReservation');
+        $uneOption = Options::find($id);
+        return view('formulaireReservation')->with('uneOption',$uneOption);
+    }
+    public function test(Request $request)
+    {
+        
+        return view('test');
+
     }
 }

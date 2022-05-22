@@ -50,7 +50,7 @@
                     <p class="card-text lead fw-normal text-center">{{$uneOption->description}} <br><br> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam cumque corporis, non eos sapiente, exercitationem</p>
                     <div class="d-flex justify-content-center">
 
-                        <a href="" class="btn btn-danger btn-lg ">Réserver</a>
+                        <a href="/tuktuk_paris/public/formulaireReservation/{{$uneOption->id}}" class="btn btn-danger btn-lg ">Réserver</a>
                     </div>
                 </div>
             </div>

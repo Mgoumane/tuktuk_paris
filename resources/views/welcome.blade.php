@@ -9,7 +9,7 @@
   <body class="red">
     <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
-          <a class="navbar-brand text-danger" href="#">LOGO</a>
+          <a class="navbar-brand text-danger" href="{{URL::to('/')}}">LOGO</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -55,7 +55,7 @@
             <p class="card-text lead fw-normal text-center">{{$option->description}} <br><br> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam cumque corporis, non eos sapiente, exercitationem</p>
             <div class="d-flex justify-content-around">
                 <a href="detailOption/{{ $option->id }}" class="btn btn-primary  btn-lg">En savoir +</a>
-                <a href="{{URL::to('/formulaireReservation')}}" class="btn btn-danger btn-lg ">Réserver</a>
+                <a href="formulaireReservation/{{ $option->id }}" class="btn btn-danger btn-lg ">Réserver</a>
             </div>
         </div>
     </div>

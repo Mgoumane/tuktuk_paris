@@ -10,6 +10,6 @@ class detailOption extends Controller
     public function afficherOption($id)
     {
         $uneOption = Options::find($id);
-        return view('detailOption')->with('uneOption',$uneOption);;
+        return view('detailOption')->with('uneOption',$uneOption);
     }
 }
