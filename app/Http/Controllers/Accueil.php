@@ -8,7 +8,7 @@ use PhpOption\Option;
 
 class Accueil extends Controller
 {
-    
+
     public function accueil()
     {
         $options = Options::GET();

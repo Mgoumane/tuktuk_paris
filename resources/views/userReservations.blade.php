@@ -1,12 +1,21 @@
 @extends('layouts.App')
 
 @section("titre")
-      Accueil
+Formulaire de réservation
  @endsection
 
 @section("contenu")
 
-  <body class="red">
+<section class="d-flex flex-column  justify-content-between"
+style="position: fixed;
+top: 0;
+left: 0;
+bottom: 0;
+right: 0;
+overflow: auto;
+">
+
+<div>
     <nav class="navbar navbar-expand-lg bg-danger">
         <div class="container-fluid">
           <a class="navbar-brand text-white" href="{{URL::to('/')}}">LOGO</a>
@@ -56,40 +65,31 @@
         </div>
       </nav>
 
-
- <!-- Card Options-->
-<section class="container-fluid pt-lg-5" id="reservation">
-  <div>
-    <h2 class="mt-3 fs-1  mx-2 col-12 text-center col-lg-6 mx-lg-auto fst-italic fw-light">Venez avec nous découvrir la plus belle ville du monde</h2>
-  </div>
-<div class="container">
-  <div class="row justify-content-center my-5">
-@foreach ( $options as $option )
-    <div class=" mb-5 mx-2 mx-auto  " style="width: 22rem;">
-        <img src="../public/Images/images_option/{{$option->image}}" class="card-img-top py-2 py-2 rounded rounded-4" alt="..." height="250px" >
-        <div class="card-body ">
-            <div class="d-flex justify-content-between">
-                <div>
-                    <h3>{{$option->nom}}</h3>
-                    <p class="fw-light ">{{$option->duree}}</p>
-                </div>
-                <h3 class="text-danger">{{$option->prix}} €</h3>
-            </div>
-            <p class="fw-semibold text-center">Description: </p>
-            <p class="card-text lead  ">{{$option->description}} </p>
-            <div class="d-flex justify-content-around">
-                <a href="detailOption/{{ $option->id }}" class="btn btn-primary  btn-lg">En savoir +</a>
-                <a href="formulaireReservation/{{ $option->id }}" class="btn btn-danger btn-lg ">Réserver</a>
-            </div>
+        <div class="container">
+                <p class="fs-1 my-5  ">Bienvenue  {{Auth::user()->name}} !</p>
+                <p class="fs-3">Vue d'ensemble de vos réservations</p>
+                @foreach ($listeUserReservation as $uneReservation)
+                <div class="card mb-5 shadow-lg  mb-5 bg-body rounded">
+                    <div class="card-header fs-5">
+                      Réservation n°  <span class="bg-danger text-white rounded-5 py-1 px-3">{{$uneReservation->id}}</span>
+                    </div>
+                    <div class="card-body">
+                      <p class="">Date de départ : {{$uneReservation->dateDepart}}</p>
+                      <p>Heure de départ : {{$uneReservation->heureDepart}}</p>
+                      <p >Point de départ : {{$uneReservation->pointDepart}}</p>
+                      <a class="text-decoration-none " href=""><i class="fa-solid fa-phone btn btn-outline-primary btn-social mx-1  rounded-5  "></i></i> {{$uneReservation->numTel}}</a>
+                      <div class="d-flex justify-content-center">
+                            <a href="supprimerReservation/{{ $uneReservation->id }}" class="btn btn-danger mt-3 mt-lg-0">Annuler la réservation</a>
+                      </div>
+                    </div>
+                  </div>
+                @endforeach
         </div>
-    </div>
-@endforeach
-    </div>
 </div>
-</section>
 
- <!-- Footer-->
-<footer class="footer text-center bg-danger py-4">
+
+
+<footer class="footer text-center bg-danger py-3">
     <div class="container">
         <div class="row">
             <!-- Footer Location-->
@@ -107,12 +107,9 @@
         </div>
     </div>
 </footer>
+</section>
 
 @endsection
 
 
-@if(Session::has("message"))
-    <div class="alert alert-danger">
-        {{Session::get('message')}}
-    </div>
-@endif
+

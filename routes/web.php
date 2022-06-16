@@ -2,8 +2,9 @@
 
 use App\Http\Controllers\Accueil;
 use App\Http\Controllers\detailOption;
-use App\Http\Controllers\reservation;
+use App\Http\Controllers\reservationController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,8 +21,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[Accueil::class,'accueil']);
 Route::get('/about',[Accueil::class,'about']);
 Route::get('/detailOption/{id}',[detailOption::class,'afficherOption']);
-Route::get('/formulaireReservation/{id}',[reservation::class,'formulaireReservation']);
-Route::post('/test',[reservation::class,'test']);
+Route::get('/formulaireReservation/{id}',[reservationController::class,'formulaireReservation']);
+Route::post('/confirmationReservation',[reservationController::class,'confirmationReservation']);
+Route::get('/userReservations',[reservationController::class,'displayUserReservations']);
+Route::get('/supprimerReservation/{id}',[reservationController::class,'supprimerReservation']);
+
 
 Auth::routes();
 
