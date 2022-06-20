@@ -1,17 +1,17 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Options;
+use App\Models\Option;
 
 use Illuminate\Http\Request;
-use PhpOption\Option;
+
 
 class Accueil extends Controller
 {
 
     public function accueil()
     {
-        $options = Options::GET();
+        $options = Option::GET();
         return view('welcome')->with("options",$options);
     }
 

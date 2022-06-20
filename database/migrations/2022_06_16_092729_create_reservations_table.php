@@ -20,8 +20,10 @@ class CreateReservationsTable extends Migration
             $table->string('numTel');
             $table->string('pointDepart');
             $table->timestamps('');
-            $table->foreignId('option_id')->constrained('options','id')->onDelete('cascade');
             $table->foreignId('user_id')->constrained('users','id')->onDelete('cascade');
+            $table->foreignId('chauffeur_id')->constrained('chauffeurs','id')->onDelete('cascade');
+            $table->foreignId('option_id')->constrained('options','id')->onDelete('cascade');
+
         });
     }
 

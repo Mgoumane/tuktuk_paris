@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Options;
+use App\Models\Option;
 use App\Models\Reservation;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,7 +16,7 @@ class reservationController extends Controller
 
     public function formulaireReservation($id)
     {
-        $uneOption = Options::find($id);
+        $uneOption = Option::find($id);
         return view('formulaireReservation')->with('uneOption',$uneOption);
     }
 
@@ -34,7 +34,8 @@ class reservationController extends Controller
         $newReservation ->heureDepart = $request->input('heureDepart');
         $newReservation ->numTel = $request->input('num');
         $newReservation ->pointDepart = $request->input('pointDepart');
-        $newReservation ->option_id = $request->input('idOptionChoisie');;
+        $newReservation ->option_id = $request->input('idOptionChoisie');
+        $newReservation ->chauffeur_id = 1;
         $id = Auth::id();
         $newReservation ->user_id = $id;
 
