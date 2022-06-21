@@ -91,7 +91,7 @@
             <h2 class=" text-center text-danger fw-light">Le TUKTUK</h2>
             <p class=" my-5 px-lg-5  fs-5">Le tuktuk est un tricycle à moteur originaire de Thaïlande qui existe en différentes versions. Le tuktuk 6 places permet de transporter jusqu’à 6 passagers assis à l’arrière du véhicule sur de larges banquettes installées l’une en face de l’autre. </p>
            </div>
-           <div class="row">k
+           <div class="row">
                <div class="col-md-6 my-3 my-md-0">
                 <img class="mb-5 text-center " src="../public/Images/images_about/tuk2.jpeg" height="100%" width="100%">
                </div>
@@ -109,7 +109,7 @@
   <div class="container-fluid my-lg-5  ">
     <div class="row ">
         <div class="col-lg-8 "
-        style="background: url(../public/Images/images_option/image3_option1.jpg);
+        style="background: url(../public/Images/images_option/academie_francaise.jpg);
                     background-size: cover;
                     background-repeat: no-repeat;
                     background-position: center;"

@@ -1,3 +1,4 @@
+
 <?php
 
 use Illuminate\Database\Migrations\Migration;
@@ -13,10 +14,11 @@ class CreatePpOptionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('pp_options', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('option_id')->constrained('options','id')->onDelete('cascade');
-            $table->foreignId('pointPassages_id')->constrained('pointPassages','id')->onDelete('cascade');
+        Schema::create('pp_option', function (Blueprint $table) {
+
+            $table->foreignId('option_id')->constrained('options', 'id')->onDelete('cascade');
+            $table->foreignId('point_passage_id')->constrained('point_passages', 'id')->onDelete('cascade');
+            $table->primary(["option_id", "point_passage_id"]);
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ class CreatePpOptionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pp_options');
+        Schema::dropIfExists('pp_option');
     }
 }

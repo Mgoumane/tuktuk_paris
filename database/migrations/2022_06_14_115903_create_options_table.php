@@ -19,10 +19,6 @@ class CreateOptionsTable extends Migration
             $table->integer('prix');
             $table->string('duree');
             $table->string('image');
-            $table->string('image2')->nullable();
-            $table->string('image3')->nullable();
-            $table->string('image4')->nullable();
-            $table->string('image5')->nullable();
             $table->string('description');
             $table->timestamps();
 
