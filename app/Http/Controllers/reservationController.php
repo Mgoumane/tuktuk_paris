@@ -56,7 +56,7 @@ class reservationController extends Controller
     {
         $uneReservation = Reservation::find($id);
         $uneReservation->delete();
-        return redirect('/')->with('message','Votre réservation a étét annulé !');
+        return redirect('/')->with('message','Réservation supprimé!');
 
     }
 }

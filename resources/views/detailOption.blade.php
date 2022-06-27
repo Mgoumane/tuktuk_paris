@@ -10,7 +10,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-danger">
         <div class="container-fluid">
-            <a class="navbar-brand text-white" href="{{ URL::to('/') }}">LOGO</a>
+            <a class="navbar-brand text-white fs-1" href="{{ URL::to('/') }}" style="font-family: 'Dancing Script', cursive;">TukTuk</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -64,7 +64,7 @@
     </nav>
 
 
-    <section class="container-fluid  ">
+    <section class="container-fluid  " >
 
         {{-- Header --}}
         <h2 class="my-5 fs-1  mx-2 col-12 text-center col-lg-6 mx-lg-auto">Passez d’excellents moments avec nous !</h2>

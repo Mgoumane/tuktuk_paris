@@ -7,12 +7,12 @@
 @section("contenu")
 
 
-<section style="background-color: #2F4145">
+<section style="background-color: #2F4145 ; ">
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-transparent">
         <div class="container-fluid">
-          <a class="navbar-brand text-danger" href="{{URL::to('/')}}">LOGO</a>
+          <a class="navbar-brand text-danger fs-1" href="{{URL::to('/')}}" style="font-family: 'Dancing Script', cursive;">TukTuk</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -88,7 +88,7 @@
         </div>
         <div class="col-lg-8 ">
            <div class="row">
-            <h2 class=" text-center text-danger fw-light">Le TUKTUK</h2>
+            <h2 class=" text-center text-danger fw-light" style="font-family: 'Dancing Script', cursive;">Le TUKTUK</h2>
             <p class=" my-5 px-lg-5  fs-5">Le tuktuk est un tricycle à moteur originaire de Thaïlande qui existe en différentes versions. Le tuktuk 6 places permet de transporter jusqu’à 6 passagers assis à l’arrière du véhicule sur de larges banquettes installées l’une en face de l’autre. </p>
            </div>
            <div class="row">
@@ -117,7 +117,7 @@
 
         </div>
         <div class="col-lg-4 mb-5 px-lg-5 ">
-            <h2 class="mt-5 fs-1   text-white  ">Des monuments historiques</h2>
+            <h2 class="mt-5 fs-1   text-white  " style="font-family: 'Dancing Script', cursive;">Des monuments historiques</h2>
             <p class="py-3 py-lg-5 text-white">Les monuments de Paris font tout simplement partie des plus visités au monde ce qui n'est pas surprenant sachant que Paris est elle-même la ville la plus prisée des touristes français et étrangers.Surnommée la ville Lumière ou celle des amoureux, elle attire en effet des millions de visiteurs chaque année. Chacun venant chercher un peu de charme à la française. </p>
             <div class="d-flex justify-content-center   ">
                 <a href="{{URL::to('/')}}" class="btn btn-danger btn-lg">Réserver</a>

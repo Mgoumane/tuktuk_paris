@@ -31,12 +31,18 @@ class DatabaseSeeder extends Seeder
         Role::Create([
             "nom" => "Client",
         ]);
-        
+
         User::Create([
                     "name" => "mgoumane@outlook.fr",
                     "email" => "mgoumane@outlook.fr",
                     "password" => bcrypt("mgoumane@outlook.fr"),
                     "role_id" =>2,
+                ]);
+        User::Create([
+                    "name" => "madou018@gmail.com",
+                    "email" => "madou018@gmail.com",
+                    "password" => bcrypt("madou018@gmail.com"),
+                    "role_id" =>1,
                 ]);
         // Options
 

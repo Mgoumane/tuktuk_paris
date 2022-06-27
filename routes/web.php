@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Accueil;
+use App\Http\Controllers\adminController;
 use App\Http\Controllers\detailOption;
 use App\Http\Controllers\reservationController;
 use Illuminate\Support\Facades\Route;
@@ -26,7 +27,15 @@ Route::post('/confirmationReservation',[reservationController::class,'confirmati
 Route::get('/userReservations',[reservationController::class,'displayUserReservations']);
 Route::get('/supprimerReservation/{id}',[reservationController::class,'supprimerReservation']);
 
+// Routes vers adminControlller
+Route::get('/espaceAdmin',[adminController::class,'afficherInfos']);
+Route::get('/ajouterChauffeur',[adminController::class,'afficherFormAjout']);
+Route::get('/modifierUtilisateur/{id}',[adminController::class,'afficherFormModif']);
+Route::post('/modifierUtilisateur',[adminController::class,'modifierUtilisateur']);
+Route::get('/supprimerUtilisateur/{id}',[adminController::class,'supprimerUtilisateur']);
+Route::get('/supprimerChauffeur/{id}',[adminController::class,'supprimerChauffeur']);
+
+
 
 Auth::routes();
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
