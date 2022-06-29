@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Option;
 use App\Models\Reservation;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
@@ -50,6 +51,26 @@ class reservationController extends Controller
 
         $listeUserReservation = Reservation::where('user_id', '=', $id)->get();
         return view('userReservations')->with('listeUserReservation',$listeUserReservation);
+    }
+
+    public function formulaireModif($id)
+    {
+        $unUser = User::find($id);
+        return view('modifUtilisateur2')->with('unUser',$unUser);
+    }
+
+    public function userModif(Request $request)
+    {
+        $this->validate($request,[
+            'idUser'=>'required',
+            'nom' =>'required',
+            'mail' =>'required',
+        ]);
+        $unUser = User::find($request->input('idUser'));
+        $unUser->name = $request->input('nom');
+        $unUser->email = $request->input('mail');
+        $unUser->save();
+        return redirect('/userReservations')->with('message','Vos information ont été mis à jour !');
     }
 
     public function supprimerReservation($id)

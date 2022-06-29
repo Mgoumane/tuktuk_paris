@@ -60,11 +60,22 @@ Espace Admin
         </div>
     </nav>
     {{-- /Navbar --}}
+    @if (Session::has('message'))
+            <div id="message" role="message" class="alert alert-success">
+                {{ Session::get('message') }}
+            </div>
+    @endif
 
-    {{-- Contenu --}}
+    @if (Session::has('message_delete'))
+            <div id="message2" role="message2" class="alert alert-danger">
+                {{ Session::get('message_delete') }}
+            </div>
+        @endif
+
+
+        {{-- Contenu --}}
     <div class="container">
-
-        <p class="fs-1 my-5  ">Bienvenue  {{Auth::user()->name}} !</p>
+        <p class="fs-1 my-5  ">Espace Admin</p>
         <ul class="nav nav-tabs d-flex justify-content-center" id="myTab" role="tablist">
             <li class="nav-item " role="presentation">
                 <a class="nav-link active text-black" id="reservation-tab" data-bs-toggle="tab" data-bs-target="#reservation-tab-pane" type="button" role="tab" aria-controls="reservation-tab-pane" aria-selected="true">Réservations</a>
@@ -78,7 +89,6 @@ Espace Admin
             <li class="nav-item" role="presentation">
                 <a class="nav-link text-black" id="option-tab" data-bs-toggle="tab" data-bs-target="#option-tab-pane" type="button" role="tab" aria-controls="option-tab-pane" aria-selected="false">Options</a>
             </li>
-
         </ul>
 
         <div class="tab-content" id="myTabContent">
@@ -183,7 +193,7 @@ Espace Admin
             <div class="tab-pane fade" id="chauffeur-tab-pane" role="tabpanel" aria-labelledby="chauffeur-tab" tabindex="0">
                 <p id="chauffeurs" class="fs-3 my-5">Vue d'ensemble des chauffeurs :</p>
                 <div class="d-flex justify-content-center mb-5">
-                    <a type="submit" href="ajouterChauffeur" class="btn btn-outline-success btn-lg"><i class="fa-solid fa-plus mx-2"></i> Ajouter un chauffeur </a>
+                    <a type="submit" href="ajouterChauffeur" class="btn btn-success btn-lg"><i class="fa-solid fa-plus mx-2"></i> Ajouter un chauffeur </a>
                 </div>
                 <table class="table d-none  d-md-table  ">
                     <thead class="table-info">
@@ -209,7 +219,7 @@ Espace Admin
                             <td>{{$unChauffeur->telephone}}</td>
                             <td>{{$unChauffeur->email}}</td>
                             <td>{{$unChauffeur->created_at}}</td>
-                            <td ><a href="" type="submit" class=" fs-5 " ><i class="fa-solid fa-pen-to-square"></i></a></td>
+                            <td ><a href="modifierChauffeur/{{ $unChauffeur->id }}" type="submit" class=" fs-5 " ><i class="fa-solid fa-pen-to-square"></i></a></td>
                             <td><a href="supprimerChauffeur/{{ $unChauffeur->id }}"   type="submit" class="text-danger fs-5 " ><i class="fa-solid fa-circle-minus "></i></a></td>
                         </tr>
                     @endforeach
@@ -228,8 +238,9 @@ Espace Admin
                         <p >Email : </p>
                         <p >Date d'entrée : {{$unChauffeur->created_at}}</p>
                     </div>
-                    <div class="d-flex justify-content-center">
-                        <a href="supprimerChauffeur/{{ $unChauffeur->id }}" class="btn btn-outline-danger mt-3 mt-lg-0">Supprimer le chauffeur</a>
+                    <div class="d-flex justify-content-around mb-3">
+                        <a href="modifierChauffeur/{{ $unChauffeur->id }}" class="btn btn-outline-success mt-3 mt-lg-0">Modifier </a>
+                        <a href="supprimerChauffeur/{{ $unChauffeur->id }}" class="btn btn-outline-danger mt-3 mt-lg-0">Supprimer </a>
                     </div>
                 </div>
                 @endforeach
@@ -238,6 +249,9 @@ Espace Admin
             {{-- Options --}}
             <div class="tab-pane fade" id="option-tab-pane" role="tabpanel" aria-labelledby="option-tab" tabindex="0">
                 <p id="options" class="fs-3 my-5">Vue d'ensemble des options :</p>
+                <div class="d-flex justify-content-center mb-5">
+                    <a type="submit" href="ajouterOption" class="btn btn-success btn-lg"><i class="fa-solid fa-plus mx-2"></i> Ajouter une préstation </a>
+                </div>
                 <table class="table d-none  d-md-table  ">
                     <thead class="table-info">
                         <tr>
@@ -260,8 +274,8 @@ Espace Admin
                             <td>{{$uneOption->duree}}</td>
                             <td>{{$uneOption->description}}</td>
                             <td>{{$uneOption->image}}</td>
-                            <td ><a href="" type="submit" class=" fs-5 " ><i class="fa-solid fa-pen-to-square"></i></a></td>
-                            <td ><a type="submit" class="text-danger fs-5 " href=""><i class="fa-solid fa-circle-minus "></i></a></td>
+                            <td ><a href="modifierOption/{{ $uneOption->id }}" type="submit" class=" fs-5 " ><i class="fa-solid fa-pen-to-square"></i></a></td>
+                            <td ><a href="supprimerOption/{{ $uneOption->id }}" type="submit" class="text-danger fs-5 " href=""><i class="fa-solid fa-circle-minus "></i></a></td>
                         </tr>
                     @endforeach
                     </tbody>
@@ -278,18 +292,13 @@ Espace Admin
                         <p >Description : {{$uneOption->description}}</p>
                         <p >Image :{{$uneOption->image}} </p>
                     </div>
-                    <div class="d-flex justify-content-center">
-                        <a href="" class="btn btn-outline-danger mt-3 mt-lg-0">Supprimer l'option</a>
+                    <div class="d-flex justify-content-around mb-3">
+                        <a href="modifierOption/{{ $uneOption->id }}" class="btn btn-outline-success mt-3 mt-lg-0">Modifier la préstation</a>
+                        <a href="supprimerOption/{{ $uneOption->id }}" class="btn btn-outline-danger mt-3 mt-lg-0">Supprimer la préstation</a>
                     </div>
                 </div>
                 @endforeach
             </div>
-
-
-
-
-
-
 
         </div>
     </div>
@@ -317,6 +326,19 @@ Espace Admin
     </footer>
     {{-- /Footer --}}
     </section>
+
+    <script>
+        setTimeout(
+            function() {
+                document.querySelector("#message").classList.add("collapse");
+            }, 3000
+        );
+        setTimeout(
+            function() {
+                document.querySelector("#message2").classList.add("collapse");
+            }, 3000
+        );
+    </script>
 @endsection
 
 

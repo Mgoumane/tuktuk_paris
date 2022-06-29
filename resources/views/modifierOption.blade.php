@@ -68,56 +68,45 @@ overflow: auto;
             </ul>
       </div>
     </div>
-  </nav>
+</nav>
 
 <div>
 
-     <p class="text-center mb-5 fst-italic">Ajoutez un chauffeur</p>
+    <p class="text-center mb-5 fst-italic">Ajoutez une préstation</p>
 
-    {!! Form::open(['url'=>'/ajouterChauffeur','method' => 'POST', 'class' => 'container col-md-6 mx-auto shadow-lg p-3 mb-5 bg-body rounded']) !!}
-        <div class="row">
-            <div class="col-md-6">
-                <div class="mb-3">
-                    {{ Form::label('', 'Nom', [ 'class' => 'form-label text-primary']) }}
-                    {{ Form::text('nom','' , [ 'class' => 'form-control ']) }}
-                </div>
-                <div class="mb-3">
-                    {{ Form::label('', 'Prénom', [ 'class' => 'form-label text-primary']) }}
-                    {{ Form::text('prenom','' , [ 'class' => 'form-control ']) }}
-                </div>
-                <div class="mb-3">
-                    {{ Form::label('', 'Adresse', [ 'class' => 'form-label text-primary']) }}
-                    {{ Form::text('adresse','' , [ 'class' => 'form-control ']) }}
-                </div>
-                <div class="mb-3">
-                    {{ Form::label('', 'Téléphone', [ 'class' => 'form-label text-primary']) }}
-                    {{ Form::text('telephone','' , [ 'class' => 'form-control ']) }}
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="mb-3">
-                    {{ Form::label('', "Date d'entrée", [ 'class' => 'form-label text-primary']) }}
-                    {{ Form::date('dateEntree', '', [ 'class' => 'form-control ']) }}
-                </div>
-                <div class="mb-3">
-                    {{ Form::label('', "Email", [ 'class' => 'form-label text-primary']) }}
-                    {{ Form::email('email','' , [ 'class' => 'form-control ']) }}
-                </div>
-                <div class="mb-3">
-                    {{ Form::label('', "Mot de passe", [ 'class' => 'form-label text-primary']) }}
-                    {{ Form::text('mdp','' , [ 'class' => 'form-control ']) }}
-                </div>
-            </div>
-        </div>
+   {!! Form::open(['url'=>'/modifierOption','method' => 'POST', 'class' => 'container col-md-3 mx-auto shadow-lg p-3 mb-5 bg-body rounded', 'files' => true]) !!}
 
+               <div class="mb-3">
+                    {{ Form::hidden('idUser', $uneOption->id) }}
+                   {{ Form::label('', 'Nom', [ 'class' => 'form-label text-primary']) }}
+                   {{ Form::text('nom',$uneOption->nom , [ 'class' => 'form-control ']) }}
+               </div>
+               <div class="mb-3">
+                   {{ Form::label('', 'Prix', [ 'class' => 'form-label text-primary']) }}
+                   <div class="input-group">
+                       <span class="input-group-text">€</span>
+                       {{ Form::text('prix',$uneOption->prix , [ 'class' => 'form-control ']) }}
+                   </div>
+               </div>
+               <div class="mb-3">
+                   {{ Form::label('', 'Durée', [ 'class' => 'form-label text-primary']) }}
+                   {{ Form::text('duree',$uneOption->duree , [ 'class' => 'form-control ']) }}
+               </div>
+               <div class="mb-3">
+                   {{ Form::label('', 'Description', [ 'class' => 'form-label text-primary']) }}
+                   {{ Form::text('description',$uneOption->description , [ 'class' => 'form-control ']) }}
+               </div>
+               <div class="mb-3 ">
+                   {{ Form::label('', 'Image', [ 'class' => 'form-label text-primary']) }}
+                   {{ Form::file('image',[ 'type' => 'file' , 'class' => 'form-control'] ) }}
+               </div>
 
-
-
-            <div class="d-flex justify-content-center">
-                {{ Form::submit('Ajouter le chauffeur', ['class' => 'btn btn-primary btn-lg mt-5']) }}
-            </div>
-    {!! Form::close() !!}
+           <div class="d-flex justify-content-center">
+               {{ Form::submit('Modifier la prestation', ['class' => 'btn btn-primary btn-lg mt-5']) }}
+           </div>
+   {!! Form::close() !!}
 </div>
+
 
 <footer class="footer text-center bg-danger py-3">
     <div class="container">
