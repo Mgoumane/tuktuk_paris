@@ -95,14 +95,7 @@ overflow: auto;
                 {{ Form::label('', "Date d'entrée", [ 'class' => 'form-label text-primary']) }}
                 {{ Form::date('dateEntree', $unChauffeur->dateEntree, [ 'class' => 'form-control ']) }}
             </div>
-            <div class="mb-3">
-                {{ Form::label('', "Email", [ 'class' => 'form-label text-primary']) }}
-                {{ Form::email('email',$unChauffeur->email , [ 'class' => 'form-control ']) }}
-            </div>
-            <div class="mb-3">
-                {{ Form::label('', "Mot de passe", [ 'class' => 'form-label text-primary']) }}
-                {{ Form::text('mdp','' , [ 'class' => 'form-control ']) }}
-            </div>
+            
 
             <div class="d-flex justify-content-center">
                 {{ Form::submit('Modifier', ['class' => 'btn btn-primary btn-lg']) }}

@@ -52,7 +52,8 @@ Route::get('/supprimerChauffeur/{id}',[adminController::class,'supprimerChauffeu
 Route::get('/supprimerOption/{id}',[adminController::class,'supprimerOption']);
 
 
-// Autres routes
-
+//  Routes d'authentification
 Auth::routes();
+
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

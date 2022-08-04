@@ -13,7 +13,7 @@ class adminController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('admin');
     }
 
     public function afficherInfos()
@@ -31,8 +31,7 @@ class adminController extends Controller
         return view('ajoutChauffeur');
     }
 
-    public
-    function ajouterChauffeur(Request $request)
+    public function ajouterChauffeur(Request $request)
     {
         $this->validate($request,[
             'nom'=>'required',
@@ -140,8 +139,6 @@ class adminController extends Controller
             'adresse' => 'required',
             'telephone' => 'required',
             'dateEntree' => 'required',
-            'email' => 'required',
-            'mdp' => 'required',
         ]);
         $unChauffeur = Chauffeur::find($request->input('idChauffeur'));
         $unChauffeur->nom = $request->input('nom');
@@ -149,8 +146,6 @@ class adminController extends Controller
         $unChauffeur->adresse = $request->input('adresse');
         $unChauffeur->telephone = $request->input('telephone');
         $unChauffeur->dateEntree = $request->input('dateEntree');
-        $unChauffeur->email = $request->input('email');
-        $unChauffeur->mdp =bcrypt($request->input('mdp')) ;
         $unChauffeur->save();
         return redirect('/espaceAdmin')->with('message','Chauffeur modifié !');
     }

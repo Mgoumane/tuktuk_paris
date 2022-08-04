@@ -72,10 +72,9 @@ overflow: auto;
 
 <div>
 
-    <p class="text-center mb-5 fst-italic">Ajoutez une préstation</p>
+    <p class="text-center mb-5 mt-2 fst-italic text-success">Effacez les champs que vous souhaitez modifier </p>
 
    {!! Form::open(['url'=>'/modifierOption','method' => 'POST', 'class' => 'container col-md-3 mx-auto shadow-lg p-3 mb-5 bg-body rounded', 'files' => true]) !!}
-
                <div class="mb-3">
                     {{ Form::hidden('idUser', $uneOption->id) }}
                    {{ Form::label('', 'Nom', [ 'class' => 'form-label text-primary']) }}
@@ -100,7 +99,6 @@ overflow: auto;
                    {{ Form::label('', 'Image', [ 'class' => 'form-label text-primary']) }}
                    {{ Form::file('image',[ 'type' => 'file' , 'class' => 'form-control'] ) }}
                </div>
-
            <div class="d-flex justify-content-center">
                {{ Form::submit('Modifier la prestation', ['class' => 'btn btn-primary btn-lg mt-5']) }}
            </div>

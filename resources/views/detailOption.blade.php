@@ -26,14 +26,14 @@
                         @if (Route::has('login'))
                             <li class="nav-item my-2 my-lg-0 ">
                                 <a class="navbarElements mx-0 mx-lg-3 text-white text-decoration-none"
-                                    href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    href="{{ route('login') }}">{{ __('Connexion') }}</a>
                             </li>
                         @endif
 
                         @if (Route::has('register'))
                             <li class="nav-item my-2 my-lg-0">
                                 <a class="navbarElements mx-0 mx-lg-3 text-white text-decoration-none"
-                                    href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    href="{{ route('register') }}">{{ __('Inscription') }}</a>
                             </li>
                         @endif
                     @else

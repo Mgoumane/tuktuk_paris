@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Chauffeur;
 use App\Models\Option;
 use App\Models\Reservation;
 use App\Models\User;
@@ -30,18 +32,32 @@ class reservationController extends Controller
             'num' =>'required',
             'pointDepart' =>'required',
         ]);
+
+        //randomChauffeur() me retourne un idChauffeur au hasard
+        function randomChauffeur()
+        {
+            $identifiantsChauffeurs = [];
+            $allChauffeurs = Chauffeur::GET();
+            foreach($allChauffeurs as $unChauffeur)
+            {
+                array_push($identifiantsChauffeurs,  $unChauffeur->id);
+            };
+            // Je tire au hasard un index du tableau $identifiantsChauffeurs
+            $indexRandom = array_rand( $identifiantsChauffeurs, 1);
+            // Cette index me servira à tirer au hasard un idChauffeur
+            $random = $identifiantsChauffeurs[$indexRandom] ;
+            return $random;
+        }
         $newReservation = new Reservation();
         $newReservation ->dateDepart = $request->input('dateDepart');
         $newReservation ->heureDepart = $request->input('heureDepart');
         $newReservation ->numTel = $request->input('num');
         $newReservation ->pointDepart = $request->input('pointDepart');
         $newReservation ->option_id = $request->input('idOptionChoisie');
-        $newReservation ->chauffeur_id = 1;
+        $newReservation ->chauffeur_id = randomChauffeur();
         $id = Auth::id();
         $newReservation ->user_id = $id;
-
         $newReservation->save();
-
         return redirect('/')->with('message','Réservation prise en compte!');
     }
 

@@ -80,6 +80,9 @@ Espace Admin
             <li class="nav-item " role="presentation">
                 <a class="nav-link active text-black" id="reservation-tab" data-bs-toggle="tab" data-bs-target="#reservation-tab-pane" type="button" role="tab" aria-controls="reservation-tab-pane" aria-selected="true">Réservations</a>
             </li>
+            <li class="nav-item " role="presentation">
+                <a class="nav-link  text-black" id="reservationByChauff-tab" data-bs-toggle="tab" data-bs-target="#reservationByChauff-tab-pane" type="button" role="tab" aria-controls="reservationByChauff-tab-pane" aria-selected="false">Réservations par chauffeur</a>
+            </li>
             <li class="nav-item" role="presentation">
                 <a class="nav-link text-black" id="utilisateur-tab" data-bs-toggle="tab" data-bs-target="#utilisateur-tab-pane" type="button" role="tab" aria-controls="utilisateur-tab-pane" aria-selected="false">Utilisateurs</a>
             </li>
@@ -99,7 +102,8 @@ Espace Admin
                     <thead class="table-info">
                         <tr>
                             <th scope="col">Numéro de réservation  </th>
-                            <th scope="col">Numéro de l'utilisateur  </th>
+                            <th scope="col">Nom de l'utilisateur  </th>
+                            <th scope="col">Chauffeur </th>
                             <th scope="col">Date de départ </th>
                             <th scope="col">Option choisie </th>
                             <th scope="col">Heure de départ </th>
@@ -112,10 +116,11 @@ Espace Admin
                     <tbody>
                         @foreach ($allReservations as $uneReservation)
                         <tr>
-                            <th scope="row">{{$uneReservation->id}}</th>
-                            <th scope="row">{{$uneReservation->user_id}}</th>
+                            <th >{{$uneReservation->id}}</th>
+                            <th >{{$uneReservation->user->name}}</th>
+                            <th >{{$uneReservation->chauffeur->prenom}}</th>
                             <td>{{$uneReservation->dateDepart}}</td>
-                            <td>{{$uneReservation->option_id}}</td>
+                            <td>{{$uneReservation->option->nom}}</td>
                             <td>{{$uneReservation->heureDepart}}</td>
                             <td>{{$uneReservation->numTel}}</td>
                             <td>{{$uneReservation->pointDepart}}</td>
@@ -142,6 +147,41 @@ Espace Admin
                     </div>
                 </div>
                 @endforeach
+            </div>
+
+            {{-- Réservations par chauffeur --}}
+            <div class="tab-pane fade " id="reservationByChauff-tab-pane" role="tabpanel" aria-labelledby="reservationByChauff-tab" tabindex="0">
+                <div class="row mt-5">
+                    @foreach ( $allChauffeurs as $unChauffeur)
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="text-center"> {{$unChauffeur->nom}} {{$unChauffeur->prenom}}  </h3>
+                                </div>
+                                <div class="card-body">
+                                    <table class="table   ">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th scope="col">Numéro de réservation  </th>
+                                                <th scope="col">Date de départ  </th>
+                                                <th scope="col">Chauffeur </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($unChauffeur->Reservations as $uneReservation)
+                                            <tr>
+                                                <th >{{$uneReservation->id}}</th>
+                                                <td >{{$uneReservation->dateDepart}}</td>
+                                                <td >{{$uneReservation->option->duree}}</td>
+                                            </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                       </div>
+                   @endforeach
+                </div>
             </div>
 
             {{-- Utilisateurs --}}

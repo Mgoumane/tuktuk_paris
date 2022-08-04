@@ -18,26 +18,26 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item mt-5 mb-2 my-lg-0">
-                            <a class="navbarElements mx-0 mx-lg-3 text-black text-decoration-none" aria-current="page"
+                            <a class="navbarElements mx-0 mx-lg-3  text-black text-decoration-none" aria-current="page"
                                 href="{{ URL::to('/about') }}">À propos</a>
                         </li>
                         <!-- Authentication Links -->
                         @guest
                         @if (Route::has('login'))
                          <li class="nav-item my-2 my-lg-0 ">
-                            <a class="navbarElements mx-0 mx-lg-3 text-black text-decoration-none"
-                                        href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <a class="navbarElements mx-0 mx-lg-3 text-white text-decoration-none  p-2 rounded bg-danger"
+                                        href="{{ route('login') }}">{{ __('Se connecter') }}</a>
                         </li>
                         @endif
                         @if (Route::has('register'))
                             <li class="nav-item my-2 my-lg-0">
-                                <a class="navbarElements mx-0 mx-lg-3 text-black text-decoration-none"
-                                        href="{{ route('register') }}">{{ __('Register') }}</a>
+                                <a class="navbarElements mx-0 mx-lg-3 text-danger text-decoration-none "
+                                        href="{{ route('register') }}">{{ __("S'inscrire") }}</a>
                             </li>
                         @endif
                         @else
                         <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="navbarElements dropdown-toggle text-black text-decoration-none"
+                            <a id="navbarDropdown" class="navbarElements dropdown-toggle text-black text-decoration-none border p-2 rounded "
                                     href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
                                     aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
@@ -128,7 +128,7 @@
         </section>
 
         <!-- FOOTER-->
-        <footer class="footer text-center bg-danger py-3">
+        <footer class="footer text-center bg-danger py-4 mt-3">
             <div class="container">
                 <div class="row">
                     <!-- Footer Location-->

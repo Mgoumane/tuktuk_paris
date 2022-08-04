@@ -9,11 +9,8 @@ class Chauffeur extends Model
 {
     use HasFactory;
 
-
-
     public function reservations(){
         return $this->hasMany(Reservation::class,"chauffeur_id");
     }
 
-   
 }
